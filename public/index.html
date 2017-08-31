@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"> 
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- <link rel="stylesheet" href="css/materialize.css"> -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+        <link rel="stylesheet" href="css/calendar.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <div id="form"></div>
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="js/materialize.js"></script>
+        <script src="js/moment.js">moment.locale('pl');</script>
+        <script src="js/underscore-min.js"></script>
+        <script src="js/clndr.min.js"></script>
+        <script type="text/javascript" src="bundle.js" charset="utf-8"></script>
+		<style>
+			#sidenav-overlay {
+				z-index: 1;
+            }
+            .picker__select--year.browser-default {
+                height: 2em;
+                opacity: 1;
+                pointer-events: all;
+                position: static;
+            }
+            text{
+                cursor: default
+            }
+        </style>
+
+        <script type="text/template" id="full-clndr-template">
+            <div class="clndr-controls">
+                <div class="clndr-previous-button">&lt;</div>
+                <div class="clndr-next-button">&gt;</div>
+                <div class="current-month"><%= month %> <%= year %></div>
+
+            </div>
+            <div class="clndr-grid">
+                <div class="days-of-the-week clearfix">
+                <% _.each(daysOfTheWeek, function(day) { %>
+                    <div class="header-day"><%= day %></div>
+                <% }); %>
+                </div>
+                <div class="days">
+                <% _.each(days, function(day) { %>
+                    <div class="<%= day.classes %>" data-tooltip="<% _.each(day.events, function(event){ %><%= event.title %> (<%= event.location %>)<br> <% }) %>" data-position="top" data-delay="50" id="<%= day.id %>"><span class="day-number"><%= day.day %></span></div>
+                <% }); %>
+                </div>
+            </div>
+        </script>
+
+        <script>
+                $('.button-collapse').sideNav({
+                    menuWidth: 300, // Default is 300
+                    closeOnClick: false, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+                    draggable: true // Choose whether you can drag to open on touch screens,
+                });
+    
+                $('.event-listing').height($('.clndr-grid').height());
+                function tooltipLoad(){
+                    $('.tooltipped').tooltip({delay: 50}).each(function(index, element) {
+                        var span = $('#' + $(element).attr('data-tooltip-id') + '>span:first-child');
+                        span.before($(element).attr('data-tooltip'));
+                        span.remove();
+                    });;
+                }
+        </script>
+    </body>
+</html>

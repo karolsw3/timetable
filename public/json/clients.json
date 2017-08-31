@@ -1,0 +1,60 @@
+{
+	"quickView":[{
+		"name":"id",
+		"type":"textBold"
+	},{
+		"name":"name",
+		"type":"text"
+	},{
+		"name":"town",
+		"type":"text"
+	}, {
+		"name": "email",
+		"type": "text"
+	}, {
+		"name": "phone",
+		"type": "text"
+	}],
+	"translate":{
+		"id":"ID",
+		"name":"Imię i nazwisko",
+		"email":"Email",
+		"phone":"Numer telefonu",
+		"town":"Miasto",
+		"note":"Uwagi/Notatki"
+	},
+	"data":[{
+		"name": "name",
+		"placeholder": "Imię i nazwisko",
+		"type": "text",
+		"minChars": 7,
+		"maxChars": 30,
+		"canBeEmpty": false
+	}, {
+		"name": "email",
+		"placeholder": "Email",
+		"type": "email",
+		"minChars": 4,
+		"maxChars": 50,
+		"canBeEmpty": true
+	}, {
+		"name": "phone",
+		"placeholder": "Numer telefonu",
+		"type": "phone",
+		"minChars": 9,
+		"maxChars": 12,
+		"canBeEmpty": true
+	}, {
+		"name": "town",
+		"placeholder": "Miasto",
+		"type": "select",
+		"options":["Kraków","Warszawa","Bielsko"],
+		"optionsImages":["http://t-eska.cdn.smcloud.net/regionalna/t/2/t/image/264fe7c441c9430e0fe6e10e78aa62b3L59yq4X6-wdne.jpg/ru-0-r-700,400-q-80-n-264fe7c441c9430e0fe6e10e78aa62b3L59yq4X6wdne.jpg","http://www.niebianskie-podroze.pl/wp-content/uploads/2015/08/war.jpg","https://upload.wikimedia.org/wikipedia/commons/d/dd/Bielsko_-_Poczta.JPG"],
+		"canBeEmpty": false
+	}, {
+		"name": "note",
+		"placeholder": "Uwagi/Notatki",
+		"type": "textarea",
+		"canBeEmpty": true
+	}]
+}

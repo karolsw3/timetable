@@ -1,0 +1,115 @@
+{	
+	"quickView":[{
+		"name":"id",
+		"type":"textBold"
+	},{
+		"name":"name",
+		"type":"text"
+	},{
+		"name":"town",
+		"type":"text"
+	},{
+		"name":"cemetery",
+		"type":"text"
+	}, {
+		"name": "quarter",
+		"type": "text"
+	}, {
+		"name": "place",
+		"type": "text"
+	}, {
+		"name": "row",
+		"type": "text"
+	},{
+		"name":"deathDate",
+		"type":"text"
+	},{
+		"name":"deadLines",
+		"type":"multiDateNearest"
+	}],
+	"translate":{
+		"id":"ID",
+		"name":"Imię i nazwisko",
+		"clientId":"ID klienta",
+		"image":"Adres zdjęcia nagrobka",
+		"email":"Email",
+		"phone":"Numer telefonu",
+		"town":"Miasto",
+		"cemetery":"Cmentarz",
+		"quarter":"Kwatera",
+		"place":"Miejsce",
+		"row":"Rząd",
+		"note":"Uwagi/Notatki",
+		"deathDate":"Data śmierci",
+		"contractEndDate":"Data zakończenia umowy",
+		"deadLines":"Terminy sprzątania (dla lepszego wglądu patrz kalendarz)",
+		"offerHasBeenSentDate":"Data wysłania oferty"
+	},
+	"data":[{
+		"name": "clientId",
+		"placeholder": "ID klienta",
+		"type": "text",
+		"minChars": 2,
+		"maxChars": 6
+	}, {
+		"name": "name",
+		"placeholder": "Imię i nazwisko",
+		"type": "text",
+		"minChars": 7,
+		"maxChars": 30
+	}, {
+		"name": "image",
+		"placeholder": "Zdjęcie nagrobka",
+		"type": "image"
+	}, {
+		"name": "town",
+		"placeholder": "Miasto",
+		"type": "dropdownSelect",
+		"options":["Kraków","Warszawa","Bielsko"],
+		"optionsImages":["http://t-eska.cdn.smcloud.net/regionalna/t/2/t/image/264fe7c441c9430e0fe6e10e78aa62b3L59yq4X6-wdne.jpg/ru-0-r-700,400-q-80-n-264fe7c441c9430e0fe6e10e78aa62b3L59yq4X6wdne.jpg","http://www.niebianskie-podroze.pl/wp-content/uploads/2015/08/war.jpg","https://upload.wikimedia.org/wikipedia/commons/d/dd/Bielsko_-_Poczta.JPG"],
+		"dropdown":[
+			["Rakowicki","Cmentarz Bierzanów"],
+			["Powązki"],
+			["Cmentarz komunalny"]
+		],
+		"dropdownName":"cemetery"
+	}, {
+		"name": "quarter",
+		"placeholder": "Kwatera",
+		"type": "text",
+		"minChars": 2,
+		"maxChars": 5
+	}, {
+		"name": "place",
+		"placeholder": "Miejsce",
+		"type": "text",
+		"minChars": 1,
+		"maxChars": 3
+	}, {
+		"name": "row",
+		"placeholder": "Rząd",
+		"type": "text",
+		"minChars": 1,
+		"maxChars": 3
+	}, {
+		"name": "deathDate",
+		"placeholder": "Data śmierci",
+		"type": "date"
+	}, {
+		"name": "contractEndDate",
+		"placeholder": "Umowa trwa do...",
+		"type": "date"
+	}, {
+		"name": "offerHasBeenSentDate",
+		"placeholder": "Oferta wysłana dnia...",
+		"type": "date"
+	}, {
+		"name": "deadLines",
+		"placeholder": "Wybierz daty, kiedy groby będą sprzątane:",
+		"type": "multiCalendar"
+	}, {
+		"name": "note",
+		"placeholder": "Uwagi/Notatki",
+		"type": "textarea"
+	}]
+}

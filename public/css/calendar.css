@@ -1,0 +1,107 @@
+#full-clndr {
+  cursor: default;
+  width: 100%;
+  background-color: white;
+  font-weight: 400;
+}
+#full-clndr .clndr-controls {
+  padding: 14px;
+  color: #26a69a;
+  text-align: center;
+}
+#full-clndr .clndr-controls .clndr-previous-button {
+  float: left;
+  text-align: left;
+}
+#full-clndr .clndr-controls .clndr-next-button {
+  float: right;
+  text-align: right;
+}
+#full-clndr .clndr-controls .clndr-previous-button,
+#full-clndr .clndr-controls .clndr-next-button {
+  width: 30px;
+  cursor: pointer;
+}
+#full-clndr .clndr-controls .clndr-previous-button:hover,
+#full-clndr .clndr-controls .clndr-next-button:hover {
+  opacity: 0.5;
+}
+#full-clndr .clndr-grid {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+#full-clndr .clndr-grid .days-of-the-week {
+  width: 100%;
+  background-color: #26a69a;
+}
+#full-clndr .clndr-grid .days-of-the-week .header-day {
+  float: left;
+  width: 14.2857%;
+  padding: 14px;
+  text-align: center;
+  color: #606060;
+}
+#full-clndr .clndr-grid .days {
+  width: 100%;
+}
+#full-clndr .clndr-grid .days .day,
+#full-clndr .clndr-grid .days .empty {
+  float: left;
+  width: 14.2857%;
+  height: 66px;
+  padding: 24px 0;
+  text-align: center;
+  color: #4f4f4f;
+  background-color: white;
+  background-size: cover;
+  background-position: center;
+}
+#full-clndr .clndr-grid .days .day.event .day-number,
+#full-clndr .clndr-grid .days .empty.event .day-number {
+  padding-bottom: 4px;
+  border-bottom: 2px solid white;
+}
+
+#full-clndr .clndr-grid .days .day.event,
+#full-clndr .clndr-grid .days .empty.event {
+  color: white;
+  background: #673ab7;
+  font-weight: 900;
+}
+#full-clndr .clndr-grid .days .day.adjacent-month .day-number,
+#full-clndr .clndr-grid .days .empty.adjacent-month .day-number {
+  opacity: 0.3;
+}
+#full-clndr .clndr-grid .days .today {
+  color: white;
+  font-weight: 900;
+  background-color: #f44336;
+  background-image: none;
+}
+
+#full-clndr .clndr-grid .days .day:hover {
+  opacity: 0.8;
+}
+
+#full-clndr .clndr-grid .days .past {
+  background-color: #BFBFBF;
+}
+
+#full-clndr .event-listing {
+  float: left;
+  width: 35%;
+}
+#full-clndr .event-listing .event-listing-title {
+  padding: 14px;
+  background-color: #673ab7;
+  text-align: center;
+  color: white;
+  letter-spacing: 1px;
+}
+#full-clndr .event-listing .event-item {
+  padding: 14px;
+  color: #4f4f4f;
+}
+#full-clndr .event-listing .event-item-location {
+  font-weight: 400;
+}
