@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
-import clndr from 'clndr';
+import {clndr,destroy} from 'clndr';
 import axios from 'axios';
 import styled from 'styled-components';
 
@@ -15,6 +15,7 @@ class Calendar extends Component {
       events: []
     };
     this.loadCalendar = this.loadCalendar.bind(this);
+    this.destroyCalendar = this.destroyCalendar.bind(this);
   }
   
   componentDidMount(){
@@ -53,11 +54,15 @@ class Calendar extends Component {
     });
   }
 
+destroyCalendar(){
+  $('#full-clndr').destroy();
+}
   render(){
     return(
       <div>
         <Button floating fab='horizontal' icon='apps' className='red' large style={{bottom: '45px', right: '24px'}}>
           <Button onClick={this.loadCalendar} floating icon='insert_invitation' className='deep-purple'/>
+          <Button onClick={this.destroyCalendar} floating icon='close' className='red'/>
         </Button>
         <div id="full-clndr"></div>
       </div>
