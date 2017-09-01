@@ -4,7 +4,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 
 import Info from './Info';
-import {Table, Modal, Button} from 'react-materialize';
+import {Table, Modal, Button, Input, Row} from 'react-materialize';
 
 const TableStyle = styled.table`
   marin: 0 auto;
@@ -33,10 +33,12 @@ class Table2 extends Component {
         "message":"",
         "translate":[],
         "data": [],
-        "rows": []
+        "rows": [],
+        "searchFilter": ""
     };
     this.updateTable = this.updateTable.bind(this);
     this.deleteRecord = this.deleteRecord.bind(this);
+    this.search = this.search.bind(this);
   }
   updateTable(table){
     this.setState({ "data": [], "rows": [] });
@@ -78,6 +80,12 @@ class Table2 extends Component {
     this.updateTable(next.table);
   }
 
+  search(event){
+    this.setState({
+      searchFilter: event.target.value
+    });
+  }
+
   render(){
     var rows = this.state.rows.map((data,index)=> {
       if(index === 0){// ID
@@ -89,14 +97,27 @@ class Table2 extends Component {
       }
     });
     
+    var searchData = "";
+
     var data = this.state.data.map((data,i)=>{
+      searchData += ""+data;
       return data;
     });
     
     var x = 0;
 
     var cluster = data.map((d,i)=>{
-      if(x%rows.length === 0){
+
+      var searchedFound = false;
+      for(var i2=0;i2<rows.length;i2++){
+        try{
+          if(data[i2+i].search(this.state.searchFilter) !== -1){
+            searchedFound = true;
+          }
+        }catch(err){}
+      }
+        
+      if(x%rows.length === 0 && searchedFound){          
         x++;
         var rowsCluster = rows.map((d,index)=>{
           if(index === 0){// ID
@@ -126,7 +147,6 @@ class Table2 extends Component {
               var year = dates[i2].substring(6, 10);
               
               var formatted_date = month+"/"+day+"/"+year;
-              console.log(formatted_date);
 
               var nearestDate = Date.parse(nearest);
               var dateToCompare = Date.parse(formatted_date);
@@ -182,10 +202,14 @@ class Table2 extends Component {
         x++;
         return null;
       }
+      
     });
 
     return(
       <div>
+        <Row>
+          <Input placeholder="Przeszukaj tabelę" s={12} onChange={this.search}/>
+        </Row>
         <Table responsive={true} hoverable={true} stripped={true}>
             <thead>
               <tr>

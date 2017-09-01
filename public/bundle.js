@@ -58319,6 +58319,8 @@ var _jquery2 = _interopRequireDefault(_jquery);
 
 var _clndr = __webpack_require__(371);
 
+var _clndr2 = _interopRequireDefault(_clndr);
+
 var _axios = __webpack_require__(46);
 
 var _axios2 = _interopRequireDefault(_axios);
@@ -58369,7 +58371,7 @@ var Calendar = function (_Component) {
       _axios2.default.post('api/return_events.php').then(function (data) {
         _this2.setState({ events: data.data });
 
-        (0, _jquery2.default)('#full-clndr').height(450).clndr({
+        (0, _jquery2.default)('#full-clndr').height(450).show().clndr({
           moment: moment,
           template: (0, _jquery2.default)('#full-clndr-template').html(),
           events: _this2.state.events,
@@ -58391,7 +58393,7 @@ var Calendar = function (_Component) {
   }, {
     key: 'destroyCalendar',
     value: function destroyCalendar() {
-      (0, _jquery2.default)('#full-clndr').destroy();
+      (0, _jquery2.default)('#full-clndr').hide();
     }
   }, {
     key: 'render',
@@ -73811,7 +73813,7 @@ var Form = function (_React$Component) {
             _react2.default.createElement(
               _reactMaterialize.Button,
               { waves: 'light', onClick: this.submit },
-              'Edytuj'
+              'Zapisz'
             )
           )
         );
@@ -74015,7 +74017,6 @@ var Input2 = function (_Component) {
     value: function multiCalendarInputExpander(event) {
       //check if it's needed to generate another input if the last input is full
       if ((0, _jquery2.default)("#dateInput_" + (this.state.numberOfDateInputs - 1)).val() !== "") {
-        console.log("Input nr." + (this.state.numberOfDateInputs - 1) + " is so full look: " + (0, _jquery2.default)("#dateInput_" + (this.state.numberOfDateInputs - 1)).val());
         this.setState({
           value: event.target.value,
           numberOfDateInputs: this.state.numberOfDateInputs + 1
@@ -74220,10 +74221,12 @@ var Table2 = function (_Component) {
       "message": "",
       "translate": [],
       "data": [],
-      "rows": []
+      "rows": [],
+      "searchFilter": ""
     };
     _this.updateTable = _this.updateTable.bind(_this);
     _this.deleteRecord = _this.deleteRecord.bind(_this);
+    _this.search = _this.search.bind(_this);
     return _this;
   }
 
@@ -74271,6 +74274,13 @@ var Table2 = function (_Component) {
       this.updateTable(next.table);
     }
   }, {
+    key: 'search',
+    value: function search(event) {
+      this.setState({
+        searchFilter: event.target.value
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _this4 = this;
@@ -74302,14 +74312,27 @@ var Table2 = function (_Component) {
         }
       });
 
+      var searchData = "";
+
       var data = this.state.data.map(function (data, i) {
+        searchData += "" + data;
         return data;
       });
 
       var x = 0;
 
       var cluster = data.map(function (d, i) {
-        if (x % rows.length === 0) {
+
+        var searchedFound = false;
+        for (var i2 = 0; i2 < rows.length; i2++) {
+          try {
+            if (data[i2 + i].search(_this4.state.searchFilter) !== -1) {
+              searchedFound = true;
+            }
+          } catch (err) {}
+        }
+
+        if (x % rows.length === 0 && searchedFound) {
           x++;
           var rowsCluster = rows.map(function (d, index) {
             if (index === 0) {
@@ -74348,7 +74371,6 @@ var Table2 = function (_Component) {
                 var year = dates[i2].substring(6, 10);
 
                 var formatted_date = month + "/" + day + "/" + year;
-                console.log(formatted_date);
 
                 var nearestDate = Date.parse(nearest);
                 var dateToCompare = Date.parse(formatted_date);
@@ -74442,6 +74464,11 @@ var Table2 = function (_Component) {
       return _react2.default.createElement(
         'div',
         null,
+        _react2.default.createElement(
+          _reactMaterialize.Row,
+          null,
+          _react2.default.createElement(_reactMaterialize.Input, { placeholder: 'Przeszukaj tabel\u0119', s: 12, onChange: this.search })
+        ),
         _react2.default.createElement(
           _reactMaterialize.Table,
           { responsive: true, hoverable: true, stripped: true },

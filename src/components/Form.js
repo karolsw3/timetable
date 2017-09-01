@@ -104,7 +104,8 @@ export default class Form extends React.Component {
           "minChars": data.minChars
         };
         return <Input2 value={this.state.info[data.name]} dropdownValue={this.state.info[data.dropdownName]} validators={validators} type={data.type} id={data.name} name={data.name} dropdown={data.dropdown} dropdownName={data.dropdownName} placeholder={data.placeholder} options={data.options} optionsImages={data.optionsImages} key={i}/>
-		});
+    });
+    
     if(this.props.editedID){
       return (
         <div className="container">
@@ -112,7 +113,7 @@ export default class Form extends React.Component {
             <ul><Row>{inputs}</Row></ul>
           </div>
           <div className="form__submit">
-            <Button waves='light' onClick={this.submit}>Edytuj</Button>
+            <Button waves='light' onClick={this.submit}>Zapisz</Button>
           </div>
         </div>
       );      

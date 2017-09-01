@@ -111,7 +111,6 @@ class Input2 extends Component {
   multiCalendarInputExpander(event){
     //check if it's needed to generate another input if the last input is full
     if($("#dateInput_"+(this.state.numberOfDateInputs-1)).val() !== ""){
-      console.log("Input nr."+(this.state.numberOfDateInputs-1)+" is so full look: "+$("#dateInput_"+(this.state.numberOfDateInputs-1)).val());
       this.setState({
           value: event.target.value,
           numberOfDateInputs: this.state.numberOfDateInputs+1

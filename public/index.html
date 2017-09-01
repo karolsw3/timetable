@@ -60,6 +60,9 @@
                 });
     
                 $('.event-listing').height($('.clndr-grid').height());
+
+                //All functions which react couldn't resist
+
                 function tooltipLoad(){
                     $('.tooltipped').tooltip({delay: 50}).each(function(index, element) {
                         var span = $('#' + $(element).attr('data-tooltip-id') + '>span:first-child');
@@ -67,6 +70,7 @@
                         span.remove();
                     });;
                 }
+
         </script>
     </body>
 </html>

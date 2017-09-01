@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
-import {clndr,destroy} from 'clndr';
+import clndr from 'clndr';
 import axios from 'axios';
 import styled from 'styled-components';
 
@@ -32,7 +32,7 @@ class Calendar extends Component {
     .then((data) => {
       this.setState({ events: data.data });
 
-      $('#full-clndr').height(450).clndr({
+      $('#full-clndr').height(450).show().clndr({
         moment: moment,
         template: $('#full-clndr-template').html(),
         events: this.state.events,
@@ -55,7 +55,7 @@ class Calendar extends Component {
   }
 
 destroyCalendar(){
-  $('#full-clndr').destroy();
+  $('#full-clndr').hide();
 }
   render(){
     return(
