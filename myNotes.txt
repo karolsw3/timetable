@@ -1,0 +1,1 @@
+learn more how to properly build var x = React.createClass components and fix bugs in your app. Thanks

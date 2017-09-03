@@ -208,7 +208,7 @@ class Table2 extends Component {
     return(
       <div>
         <Row>
-          <Input placeholder="Przeszukaj tabelę" s={12} onChange={this.search}/>
+          <Input id="searchBar" placeholder="Przeszukaj tabelę" s={12} onChange={this.search}/>
         </Row>
         <Table responsive={true} hoverable={true} stripped={true}>
             <thead>
