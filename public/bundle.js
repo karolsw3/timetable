@@ -58353,7 +58353,6 @@ var Calendar = function (_Component) {
 
     _this.state = {
       events: [],
-      showTodoList: false,
       todoEvents: []
     };
     _this.loadCalendar = _this.loadCalendar.bind(_this);
@@ -58388,9 +58387,11 @@ var Calendar = function (_Component) {
             },
             click: function (target) {
               this.setState({
-                showTodoList: true,
                 todoEvents: target.events
               });
+              if (target.events.length) {
+                todolistOpen(); // Load todolist modal (function in index.html) 
+              }
             }.bind(_this2)
           }
         });
@@ -58406,7 +58407,7 @@ var Calendar = function (_Component) {
     key: 'render',
     value: function render() {
       var todoRender = "";
-      if (this.state.showTodoList) {
+      if (this.state.todoEvents !== null) {
         todoRender = _react2.default.createElement(_TodoList2.default, { thingsToDo: this.state.todoEvents });
       }
       return _react2.default.createElement(
@@ -58418,7 +58419,13 @@ var Calendar = function (_Component) {
           _react2.default.createElement(_reactMaterialize.Button, { onClick: this.loadCalendar, floating: true, icon: 'insert_invitation', className: 'deep-purple' }),
           _react2.default.createElement(_reactMaterialize.Button, { onClick: this.destroyCalendar, floating: true, icon: 'close', className: 'red' })
         ),
-        todoRender,
+        _react2.default.createElement(
+          _reactMaterialize.Modal,
+          {
+            id: 'todo',
+            header: 'Groby do posprz\u0105tania' },
+          todoRender
+        ),
         _react2.default.createElement('div', { id: 'full-clndr' })
       );
     }
@@ -61029,7 +61036,7 @@ var TodoList = function (_Component2) {
 
       return _react2.default.createElement(
         _reactMaterialize.Collection,
-        { header: 'Groby do posprz\u0105tania' },
+        null,
         this.props.thingsToDo.map(function (data, index) {
           return _react2.default.createElement(ItemInList, { title: data.title, location: data.location });
         })

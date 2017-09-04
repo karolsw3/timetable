@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 import TodoList from './TodoList';
 
-import {Collapsible,CollapsibleItem,Button} from 'react-materialize';
+import {Collapsible,CollapsibleItem,Button,Modal} from 'react-materialize';
 
 
 class Calendar extends Component {
@@ -14,7 +14,6 @@ class Calendar extends Component {
     super();
     this.state = {
       events: [],
-      showTodoList: false,
       todoEvents: []
     };
     this.loadCalendar = this.loadCalendar.bind(this);
@@ -48,9 +47,11 @@ class Calendar extends Component {
           },
           click: function (target) {
             this.setState({
-              showTodoList: true,
               todoEvents: target.events
-            });           
+            });       
+            if(target.events.length){
+              todolistOpen(); // Load todolist modal (function in index.html) 
+            }
           }.bind(this)
         }
       });
@@ -63,8 +64,8 @@ destroyCalendar(){
 }
   render(){
     var todoRender = "";
-    if(this.state.showTodoList){
-      todoRender = <TodoList thingsToDo={this.state.todoEvents} />
+    if(this.state.todoEvents !== null){
+      todoRender = <TodoList thingsToDo={this.state.todoEvents} />;
     }
     return(
       <div>
@@ -72,7 +73,11 @@ destroyCalendar(){
           <Button onClick={this.loadCalendar} floating icon='insert_invitation' className='deep-purple'/>
           <Button onClick={this.destroyCalendar} floating icon='close' className='red'/>
         </Button>
-        {todoRender}
+        <Modal
+          id='todo'
+          header='Groby do posprzątania'>
+          {todoRender}
+        </Modal>
         <div id="full-clndr"></div>
       </div>
     );

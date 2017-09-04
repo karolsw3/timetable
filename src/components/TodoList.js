@@ -37,7 +37,7 @@ class TodoList extends Component {
   render(){
 
     return(
-      <Collection header="Groby do posprzątania">
+      <Collection>
         {this.props.thingsToDo.map((data,index)=>{
           return <ItemInList title={data.title} location={data.location}/>
         })}

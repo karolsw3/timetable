@@ -63,12 +63,16 @@
 
                 //All functions which react couldn't resist
 
-                function tooltipLoad(){
+                function tooltipLoad(){ // From Calendar.js
                     $('.tooltipped').tooltip({delay: 50}).each(function(index, element) {
                         var span = $('#' + $(element).attr('data-tooltip-id') + '>span:first-child');
                         span.before($(element).attr('data-tooltip'));
                         span.remove();
                     });;
+                }
+
+                function todolistOpen(){ // Also from Calendar.js
+                    $('#todo').modal('open');
                 }
 
         </script>
