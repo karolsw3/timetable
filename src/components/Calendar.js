@@ -65,7 +65,7 @@ destroyCalendar(){
   render(){
     var todoRender = "";
     if(this.state.todoEvents !== null){
-      todoRender = <TodoList thingsToDo={this.state.todoEvents} />;
+      todoRender = <TodoList thingsToDo={this.state.todoEvents} reloadCalendar={this.loadCalendar}/>;
     }
     return(
       <div>

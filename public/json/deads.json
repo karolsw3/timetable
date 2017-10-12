@@ -43,6 +43,7 @@
 		"deathDate":"Data śmierci",
 		"contractEndDate":"Data zakończenia umowy",
 		"deadLines":"Terminy sprzątania (dla lepszego wglądu patrz kalendarz)",
+		"deadLinesDone":"Terminy wykonane",
 		"offerHasBeenSentDate":"Data wysłania oferty"
 	},
 	"data":[{

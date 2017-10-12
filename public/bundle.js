@@ -6068,7 +6068,7 @@ var CallbackQueue = __webpack_require__(78);
 var PooledClass = __webpack_require__(22);
 var ReactFeatureFlags = __webpack_require__(79);
 var ReactReconciler = __webpack_require__(27);
-var Transaction = __webpack_require__(40);
+var Transaction = __webpack_require__(41);
 
 var invariant = __webpack_require__(4);
 
@@ -16720,7 +16720,7 @@ var _assign = __webpack_require__(8);
 var ReactCurrentOwner = __webpack_require__(15);
 
 var warning = __webpack_require__(5);
-var canDefineProperty = __webpack_require__(37);
+var canDefineProperty = __webpack_require__(38);
 var hasOwnProperty = Object.prototype.hasOwnProperty;
 
 var REACT_ELEMENT_TYPE = __webpack_require__(69);
@@ -17299,7 +17299,7 @@ var _ProgressBar = __webpack_require__(357);
 
 var _ProgressBar2 = _interopRequireDefault(_ProgressBar);
 
-var _Row = __webpack_require__(45);
+var _Row = __webpack_require__(46);
 
 var _Row2 = _interopRequireDefault(_Row);
 
@@ -17449,7 +17449,7 @@ var cloneElement = ReactElement.cloneElement;
 
 if (process.env.NODE_ENV !== 'production') {
   var lowPriorityWarning = __webpack_require__(47);
-  var canDefineProperty = __webpack_require__(37);
+  var canDefineProperty = __webpack_require__(38);
   var ReactElementValidator = __webpack_require__(71);
   var didWarnPropTypesDeprecated = false;
   createElement = ReactElementValidator.createElement;
@@ -17786,7 +17786,7 @@ module.exports = ReactReconciler;
 
 
 var DOMNamespaces = __webpack_require__(55);
-var setInnerHTML = __webpack_require__(42);
+var setInnerHTML = __webpack_require__(43);
 
 var createMicrosoftUnsafeLocalFunction = __webpack_require__(56);
 var setTextContent = __webpack_require__(83);
@@ -18188,7 +18188,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 var _prodInvariant = __webpack_require__(7);
 
-var EventPluginRegistry = __webpack_require__(39);
+var EventPluginRegistry = __webpack_require__(40);
 var EventPluginUtils = __webpack_require__(49);
 var ReactErrorUtils = __webpack_require__(50);
 
@@ -20610,6 +20610,15 @@ exports.default = styled;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+
+module.exports = __webpack_require__(373);
+
+/***/ }),
+/* 38 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -20638,7 +20647,7 @@ module.exports = canDefineProperty;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20664,7 +20673,7 @@ module.exports = emptyObject;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20923,7 +20932,7 @@ module.exports = EventPluginRegistry;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21157,7 +21166,7 @@ module.exports = TransactionImpl;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21234,7 +21243,7 @@ SyntheticUIEvent.augmentClass(SyntheticMouseEvent, MouseEventInterface);
 module.exports = SyntheticMouseEvent;
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21337,7 +21346,7 @@ if (ExecutionEnvironment.canUseDOM) {
 module.exports = setInnerHTML;
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21464,7 +21473,7 @@ function escapeTextContentForBrowser(text) {
 module.exports = escapeTextContentForBrowser;
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21482,7 +21491,7 @@ module.exports = escapeTextContentForBrowser;
 
 var _assign = __webpack_require__(8);
 
-var EventPluginRegistry = __webpack_require__(39);
+var EventPluginRegistry = __webpack_require__(40);
 var ReactEventEmitterMixin = __webpack_require__(274);
 var ViewportMetrics = __webpack_require__(82);
 
@@ -21793,7 +21802,7 @@ var ReactBrowserEventEmitter = _assign({}, ReactEventEmitterMixin, {
 module.exports = ReactBrowserEventEmitter;
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21852,15 +21861,6 @@ Row.propTypes = {
 };
 
 exports.default = Row;
-
-/***/ }),
-/* 46 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = __webpack_require__(373);
 
 /***/ }),
 /* 47 */
@@ -22443,7 +22443,7 @@ var ReactDOMComponentTree = __webpack_require__(9);
 var ReactInstrumentation = __webpack_require__(13);
 
 var createMicrosoftUnsafeLocalFunction = __webpack_require__(56);
-var setInnerHTML = __webpack_require__(42);
+var setInnerHTML = __webpack_require__(43);
 var setTextContent = __webpack_require__(83);
 
 function getNodeAfter(parentNode, node) {
@@ -24095,8 +24095,8 @@ var _prodInvariant = __webpack_require__(26),
 
 var ReactNoopUpdateQueue = __webpack_require__(68);
 
-var canDefineProperty = __webpack_require__(37);
-var emptyObject = __webpack_require__(38);
+var canDefineProperty = __webpack_require__(38);
+var emptyObject = __webpack_require__(39);
 var invariant = __webpack_require__(4);
 var lowPriorityWarning = __webpack_require__(47);
 
@@ -24426,7 +24426,7 @@ var ReactElement = __webpack_require__(21);
 
 var checkReactTypeSpec = __webpack_require__(231);
 
-var canDefineProperty = __webpack_require__(37);
+var canDefineProperty = __webpack_require__(38);
 var getIteratorFn = __webpack_require__(70);
 var warning = __webpack_require__(5);
 var lowPriorityWarning = __webpack_require__(47);
@@ -25728,8 +25728,8 @@ module.exports = ViewportMetrics;
 
 
 var ExecutionEnvironment = __webpack_require__(10);
-var escapeTextContentForBrowser = __webpack_require__(43);
-var setInnerHTML = __webpack_require__(42);
+var escapeTextContentForBrowser = __webpack_require__(44);
+var setInnerHTML = __webpack_require__(43);
 
 /**
  * Set the textContent property of a node, ensuring that whitespace is preserved
@@ -27188,7 +27188,7 @@ var _prodInvariant = __webpack_require__(7);
 var DOMLazyTree = __webpack_require__(28);
 var DOMProperty = __webpack_require__(19);
 var React = __webpack_require__(25);
-var ReactBrowserEventEmitter = __webpack_require__(44);
+var ReactBrowserEventEmitter = __webpack_require__(45);
 var ReactCurrentOwner = __webpack_require__(15);
 var ReactDOMComponentTree = __webpack_require__(9);
 var ReactDOMContainerInfo = __webpack_require__(315);
@@ -27201,10 +27201,10 @@ var ReactReconciler = __webpack_require__(27);
 var ReactUpdateQueue = __webpack_require__(62);
 var ReactUpdates = __webpack_require__(16);
 
-var emptyObject = __webpack_require__(38);
+var emptyObject = __webpack_require__(39);
 var instantiateReactComponent = __webpack_require__(89);
 var invariant = __webpack_require__(4);
-var setInnerHTML = __webpack_require__(42);
+var setInnerHTML = __webpack_require__(43);
 var shouldUpdateReactComponent = __webpack_require__(60);
 var warning = __webpack_require__(5);
 
@@ -40935,7 +40935,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 var _assign = __webpack_require__(8);
 
-var emptyObject = __webpack_require__(38);
+var emptyObject = __webpack_require__(39);
 var _invariant = __webpack_require__(4);
 
 if (process.env.NODE_ENV !== 'production') {
@@ -43640,7 +43640,7 @@ module.exports = DefaultEventPluginOrder;
 
 var EventPropagators = __webpack_require__(32);
 var ReactDOMComponentTree = __webpack_require__(9);
-var SyntheticMouseEvent = __webpack_require__(41);
+var SyntheticMouseEvent = __webpack_require__(42);
 
 var eventTypes = {
   mouseEnter: {
@@ -44445,8 +44445,8 @@ var DOMNamespaces = __webpack_require__(55);
 var DOMProperty = __webpack_require__(19);
 var DOMPropertyOperations = __webpack_require__(86);
 var EventPluginHub = __webpack_require__(33);
-var EventPluginRegistry = __webpack_require__(39);
-var ReactBrowserEventEmitter = __webpack_require__(44);
+var EventPluginRegistry = __webpack_require__(40);
+var ReactBrowserEventEmitter = __webpack_require__(45);
 var ReactDOMComponentFlags = __webpack_require__(74);
 var ReactDOMComponentTree = __webpack_require__(9);
 var ReactDOMInput = __webpack_require__(276);
@@ -44458,7 +44458,7 @@ var ReactMultiChild = __webpack_require__(279);
 var ReactServerRenderingTransaction = __webpack_require__(288);
 
 var emptyFunction = __webpack_require__(12);
-var escapeTextContentForBrowser = __webpack_require__(43);
+var escapeTextContentForBrowser = __webpack_require__(44);
 var invariant = __webpack_require__(4);
 var isEventSupported = __webpack_require__(52);
 var shallowEqual = __webpack_require__(59);
@@ -45983,7 +45983,7 @@ module.exports = memoizeStringOnly;
 
 
 
-var escapeTextContentForBrowser = __webpack_require__(43);
+var escapeTextContentForBrowser = __webpack_require__(44);
 
 /**
  * Escapes attribute value to prevent scripting attacks.
@@ -47373,7 +47373,7 @@ if (process.env.NODE_ENV !== 'production') {
   var checkReactTypeSpec = __webpack_require__(282);
 }
 
-var emptyObject = __webpack_require__(38);
+var emptyObject = __webpack_require__(39);
 var invariant = __webpack_require__(4);
 var shallowEqual = __webpack_require__(59);
 var shouldUpdateReactComponent = __webpack_require__(60);
@@ -48573,7 +48573,7 @@ module.exports = flattenChildren;
 var _assign = __webpack_require__(8);
 
 var PooledClass = __webpack_require__(22);
-var Transaction = __webpack_require__(40);
+var Transaction = __webpack_require__(41);
 var ReactInstrumentation = __webpack_require__(13);
 var ReactServerUpdateQueue = __webpack_require__(289);
 
@@ -49024,7 +49024,7 @@ var DOMChildrenOperations = __webpack_require__(54);
 var DOMLazyTree = __webpack_require__(28);
 var ReactDOMComponentTree = __webpack_require__(9);
 
-var escapeTextContentForBrowser = __webpack_require__(43);
+var escapeTextContentForBrowser = __webpack_require__(44);
 var invariant = __webpack_require__(4);
 var validateDOMNesting = __webpack_require__(63);
 
@@ -49188,7 +49188,7 @@ module.exports = ReactDOMTextComponent;
 var _assign = __webpack_require__(8);
 
 var ReactUpdates = __webpack_require__(16);
-var Transaction = __webpack_require__(40);
+var Transaction = __webpack_require__(41);
 
 var emptyFunction = __webpack_require__(12);
 
@@ -49467,7 +49467,7 @@ var EventPluginHub = __webpack_require__(33);
 var EventPluginUtils = __webpack_require__(49);
 var ReactComponentEnvironment = __webpack_require__(58);
 var ReactEmptyComponent = __webpack_require__(91);
-var ReactBrowserEventEmitter = __webpack_require__(44);
+var ReactBrowserEventEmitter = __webpack_require__(45);
 var ReactHostComponent = __webpack_require__(92);
 var ReactUpdates = __webpack_require__(16);
 
@@ -49505,10 +49505,10 @@ var _assign = __webpack_require__(8);
 
 var CallbackQueue = __webpack_require__(78);
 var PooledClass = __webpack_require__(22);
-var ReactBrowserEventEmitter = __webpack_require__(44);
+var ReactBrowserEventEmitter = __webpack_require__(45);
 var ReactInputSelection = __webpack_require__(95);
 var ReactInstrumentation = __webpack_require__(13);
-var Transaction = __webpack_require__(40);
+var Transaction = __webpack_require__(41);
 var ReactUpdateQueue = __webpack_require__(62);
 
 /**
@@ -50600,7 +50600,7 @@ var SyntheticClipboardEvent = __webpack_require__(307);
 var SyntheticEvent = __webpack_require__(17);
 var SyntheticFocusEvent = __webpack_require__(308);
 var SyntheticKeyboardEvent = __webpack_require__(309);
-var SyntheticMouseEvent = __webpack_require__(41);
+var SyntheticMouseEvent = __webpack_require__(42);
 var SyntheticDragEvent = __webpack_require__(311);
 var SyntheticTouchEvent = __webpack_require__(312);
 var SyntheticTransitionEvent = __webpack_require__(313);
@@ -51155,7 +51155,7 @@ module.exports = getEventKey;
 
 
 
-var SyntheticMouseEvent = __webpack_require__(41);
+var SyntheticMouseEvent = __webpack_require__(42);
 
 /**
  * @interface DragEvent
@@ -51290,7 +51290,7 @@ module.exports = SyntheticTransitionEvent;
 
 
 
-var SyntheticMouseEvent = __webpack_require__(41);
+var SyntheticMouseEvent = __webpack_require__(42);
 
 /**
  * @interface WheelEvent
@@ -51620,7 +51620,7 @@ module.exports = ReactMount.renderSubtreeIntoContainer;
 
 
 var DOMProperty = __webpack_require__(19);
-var EventPluginRegistry = __webpack_require__(39);
+var EventPluginRegistry = __webpack_require__(40);
 var ReactComponentTreeHook = __webpack_require__(11);
 
 var warning = __webpack_require__(5);
@@ -53954,7 +53954,7 @@ var _Icon = __webpack_require__(18);
 
 var _Icon2 = _interopRequireDefault(_Icon);
 
-var _Row = __webpack_require__(45);
+var _Row = __webpack_require__(46);
 
 var _Row2 = _interopRequireDefault(_Row);
 
@@ -55415,7 +55415,7 @@ var _classnames = __webpack_require__(6);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _Row = __webpack_require__(45);
+var _Row = __webpack_require__(46);
 
 var _Row2 = _interopRequireDefault(_Row);
 
@@ -58050,7 +58050,7 @@ var _classnames = __webpack_require__(6);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _Row = __webpack_require__(45);
+var _Row = __webpack_require__(46);
 
 var _Row2 = _interopRequireDefault(_Row);
 
@@ -58321,7 +58321,7 @@ var _clndr = __webpack_require__(371);
 
 var _clndr2 = _interopRequireDefault(_clndr);
 
-var _axios = __webpack_require__(46);
+var _axios = __webpack_require__(37);
 
 var _axios2 = _interopRequireDefault(_axios);
 
@@ -58408,7 +58408,7 @@ var Calendar = function (_Component) {
     value: function render() {
       var todoRender = "";
       if (this.state.todoEvents !== null) {
-        todoRender = _react2.default.createElement(_TodoList2.default, { thingsToDo: this.state.todoEvents });
+        todoRender = _react2.default.createElement(_TodoList2.default, { thingsToDo: this.state.todoEvents, reloadCalendar: this.loadCalendar });
       }
       return _react2.default.createElement(
         'div',
@@ -60972,6 +60972,10 @@ var _jquery = __webpack_require__(20);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
+var _axios = __webpack_require__(37);
+
+var _axios2 = _interopRequireDefault(_axios);
+
 var _reactMaterialize = __webpack_require__(23);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -60991,9 +60995,14 @@ var ItemInList = function (_Component) {
     var _this = _possibleConstructorReturn(this, (ItemInList.__proto__ || Object.getPrototypeOf(ItemInList)).call(this));
 
     _this.state = {
-      checked: false
+      checked: false,
+      unChecked: false
     };
     _this.checkItem = _this.checkItem.bind(_this);
+    _this.markEventAsDone = _this.markEventAsDone.bind(_this);
+
+    _this.unCheckItem = _this.unCheckItem.bind(_this); // un
+    _this.unMarkEventAsDone = _this.unMarkEventAsDone.bind(_this);
     return _this;
   }
 
@@ -61001,17 +61010,69 @@ var ItemInList = function (_Component) {
     key: 'checkItem',
     value: function checkItem() {
       this.setState({
-        checked: true
+        checked: true,
+        unChecked: false
+      });
+      this.props.reloadCalendar();
+    }
+  }, {
+    key: 'unCheckItem',
+    value: function unCheckItem() {
+      this.setState({
+        checked: false,
+        unChecked: true
+      });
+      this.props.reloadCalendar();
+    }
+  }, {
+    key: 'markEventAsDone',
+    value: function markEventAsDone() {
+      var _this2 = this;
+
+      var postData = {};
+      postData["id"] = this.props.id;
+      postData["date"] = this.props.date;
+      var json = JSON.stringify(postData);
+      _axios2.default.post('api/event_done.php', json).then(function (data) {
+        _this2.checkItem();
+        _this2.forceUpdate();
+      });
+    }
+  }, {
+    key: 'unMarkEventAsDone',
+    value: function unMarkEventAsDone() {
+      var _this3 = this;
+
+      var postData = {};
+      postData["id"] = this.props.id;
+      postData["date"] = this.props.date;
+      var json = JSON.stringify(postData);
+      _axios2.default.post('api/event_undone.php', json).then(function (data) {
+        _this3.unCheckItem();
+        _this3.forceUpdate();
       });
     }
   }, {
     key: 'render',
     value: function render() {
-      return _react2.default.createElement(
-        _reactMaterialize.CollectionItem,
-        null,
-        _react2.default.createElement(_reactMaterialize.Input, { type: 'checkbox', label: this.props.title + " (" + this.props.location + ")" })
-      );
+      if ((this.props.isEventDone || this.state.checked) && !this.state.unchecked) {
+        return _react2.default.createElement(
+          _reactMaterialize.CollectionItem,
+          { onClick: this.unMarkEventAsDone },
+          _react2.default.createElement(_reactMaterialize.Input, { type: 'checkbox', label: "Wykonano! " + this.props.title + " (" + this.props.location + ")", checked: true })
+        );
+      } else {
+        return _react2.default.createElement(
+          _reactMaterialize.CollectionItem,
+          { onClick: this.markEventAsDone },
+          _react2.default.createElement('input', { type: 'checkbox', id: this.props.date }),
+          _react2.default.createElement(
+            'label',
+            { 'for': this.props.date },
+            this.props.title + " (" + this.props.location + ")"
+          )
+        );
+      }
     }
   }]);
 
@@ -61024,21 +61085,22 @@ var TodoList = function (_Component2) {
   function TodoList() {
     _classCallCheck(this, TodoList);
 
-    var _this2 = _possibleConstructorReturn(this, (TodoList.__proto__ || Object.getPrototypeOf(TodoList)).call(this));
+    var _this4 = _possibleConstructorReturn(this, (TodoList.__proto__ || Object.getPrototypeOf(TodoList)).call(this));
 
-    _this2.state = {};
-    return _this2;
+    _this4.state = {};
+    return _this4;
   }
 
   _createClass(TodoList, [{
     key: 'render',
     value: function render() {
+      var _this5 = this;
 
       return _react2.default.createElement(
         _reactMaterialize.Collection,
         null,
         this.props.thingsToDo.map(function (data, index) {
-          return _react2.default.createElement(ItemInList, { title: data.title, location: data.location });
+          return _react2.default.createElement(ItemInList, { id: data.id, date: data.date, title: data.title, location: data.location, isEventDone: data.isEventDone, reloadCalendar: _this5.props.reloadCalendar });
         })
       );
     }
@@ -61070,7 +61132,7 @@ var _jquery = __webpack_require__(20);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _axios = __webpack_require__(46);
+var _axios = __webpack_require__(37);
 
 var _axios2 = _interopRequireDefault(_axios);
 
@@ -61598,7 +61660,7 @@ var _jquery = __webpack_require__(20);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _axios = __webpack_require__(46);
+var _axios = __webpack_require__(37);
 
 var _axios2 = _interopRequireDefault(_axios);
 
@@ -61950,7 +62012,7 @@ var _jquery = __webpack_require__(20);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _axios = __webpack_require__(46);
+var _axios = __webpack_require__(37);
 
 var _axios2 = _interopRequireDefault(_axios);
 
