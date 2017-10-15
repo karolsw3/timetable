@@ -18,6 +18,7 @@ class Calendar extends Component {
     };
     this.loadCalendar = this.loadCalendar.bind(this);
     this.destroyCalendar = this.destroyCalendar.bind(this);
+    this.toggleEvent = this.toggleEvent.bind(this);
   }
   
   componentDidMount(){
@@ -59,13 +60,20 @@ class Calendar extends Component {
     });
   }
 
-destroyCalendar(){
-  $('#full-clndr').hide();
-}
+  destroyCalendar(){
+    $('#full-clndr').hide();
+  }
+  toggleEvent(index){
+    var thingsToDo = this.state.todoEvents;
+    thingsToDo[index].isEventDone = !thingsToDo[index].isEventDone;
+    this.setState({
+      todoEvents: thingsToDo
+    });
+  }
   render(){
     var todoRender = "";
     if(this.state.todoEvents !== null){
-      todoRender = <TodoList thingsToDo={this.state.todoEvents} reloadCalendar={this.loadCalendar}/>;
+      todoRender = <TodoList toggleEvent={this.toggleEvent} thingsToDo={this.state.todoEvents} reloadCalendar={this.loadCalendar}/>;
     }
     return(
       <div>

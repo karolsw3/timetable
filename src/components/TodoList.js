@@ -6,31 +6,8 @@ import {Input, Collection, CollectionItem} from 'react-materialize';
 class ItemInList extends Component {
   constructor(){
     super();
-    this.state = {
-      checked: false,
-      unChecked: false
-    }
-    this.checkItem = this.checkItem.bind(this);
     this.markEventAsDone = this.markEventAsDone.bind(this);
-
-    this.unCheckItem = this.unCheckItem.bind(this); // un
     this.unMarkEventAsDone = this.unMarkEventAsDone.bind(this);
-  }
-
-  checkItem(){
-    this.setState({
-      checked: true,
-      unChecked: false
-    });
-    this.props.reloadCalendar();
-  }
-
-  unCheckItem(){
-    this.setState({
-      checked: false,
-      unChecked: true
-    });
-    this.props.reloadCalendar();
   }
 
   markEventAsDone(){
@@ -41,12 +18,12 @@ class ItemInList extends Component {
     axios
       .post('api/event_done.php',json)
       .then((data) => {
-        this.checkItem();
-        this.forceUpdate();
+        this.props.toggleEvent(this.props.index);
     });
   }
 
   unMarkEventAsDone(){
+    this.props.toggleEvent(this.props.index);
     var postData = {};
     postData["id"] = this.props.id;
     postData["date"] = this.props.date;
@@ -54,13 +31,12 @@ class ItemInList extends Component {
     axios
       .post('api/event_undone.php',json)
       .then((data) => {
-        this.unCheckItem();
-        this.forceUpdate();
+        
     });   
   }
 
   render(){
-    if((this.props.isEventDone || this.state.checked) && !this.state.unchecked){
+    if(this.props.isEventDone){
       return(
         <CollectionItem onClick={this.unMarkEventAsDone}>
           <Input type='checkbox' label={"Wykonano! "+this.props.title+" ("+this.props.location+")"} checked/>
@@ -78,18 +54,12 @@ class ItemInList extends Component {
 }
 
 class TodoList extends Component {
-  constructor(){
-    super();
-    this.state = {
-    }
-  }
 
   render(){
-
     return(
       <Collection>
         {this.props.thingsToDo.map((data,index)=>{
-          return <ItemInList id={data.id} date={data.date} title={data.title} location={data.location} isEventDone={data.isEventDone} reloadCalendar={this.props.reloadCalendar}/>
+          return <ItemInList index={index} toggleEvent={this.props.toggleEvent} id={data.id} date={data.date} title={data.title} location={data.location} isEventDone={data.isEventDone} reloadCalendar={this.props.reloadCalendar} key={data.title+data.location}/>
         })}
       </Collection>
     );

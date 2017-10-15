@@ -58357,6 +58357,7 @@ var Calendar = function (_Component) {
     };
     _this.loadCalendar = _this.loadCalendar.bind(_this);
     _this.destroyCalendar = _this.destroyCalendar.bind(_this);
+    _this.toggleEvent = _this.toggleEvent.bind(_this);
     return _this;
   }
 
@@ -58404,11 +58405,20 @@ var Calendar = function (_Component) {
       (0, _jquery2.default)('#full-clndr').hide();
     }
   }, {
+    key: 'toggleEvent',
+    value: function toggleEvent(index) {
+      var thingsToDo = this.state.todoEvents;
+      thingsToDo[index].isEventDone = !thingsToDo[index].isEventDone;
+      this.setState({
+        todoEvents: thingsToDo
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
       var todoRender = "";
       if (this.state.todoEvents !== null) {
-        todoRender = _react2.default.createElement(_TodoList2.default, { thingsToDo: this.state.todoEvents, reloadCalendar: this.loadCalendar });
+        todoRender = _react2.default.createElement(_TodoList2.default, { toggleEvent: this.toggleEvent, thingsToDo: this.state.todoEvents, reloadCalendar: this.loadCalendar });
       }
       return _react2.default.createElement(
         'div',
@@ -60994,37 +61004,12 @@ var ItemInList = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (ItemInList.__proto__ || Object.getPrototypeOf(ItemInList)).call(this));
 
-    _this.state = {
-      checked: false,
-      unChecked: false
-    };
-    _this.checkItem = _this.checkItem.bind(_this);
     _this.markEventAsDone = _this.markEventAsDone.bind(_this);
-
-    _this.unCheckItem = _this.unCheckItem.bind(_this); // un
     _this.unMarkEventAsDone = _this.unMarkEventAsDone.bind(_this);
     return _this;
   }
 
   _createClass(ItemInList, [{
-    key: 'checkItem',
-    value: function checkItem() {
-      this.setState({
-        checked: true,
-        unChecked: false
-      });
-      this.props.reloadCalendar();
-    }
-  }, {
-    key: 'unCheckItem',
-    value: function unCheckItem() {
-      this.setState({
-        checked: false,
-        unChecked: true
-      });
-      this.props.reloadCalendar();
-    }
-  }, {
     key: 'markEventAsDone',
     value: function markEventAsDone() {
       var _this2 = this;
@@ -61034,28 +61019,23 @@ var ItemInList = function (_Component) {
       postData["date"] = this.props.date;
       var json = JSON.stringify(postData);
       _axios2.default.post('api/event_done.php', json).then(function (data) {
-        _this2.checkItem();
-        _this2.forceUpdate();
+        _this2.props.toggleEvent(_this2.props.index);
       });
     }
   }, {
     key: 'unMarkEventAsDone',
     value: function unMarkEventAsDone() {
-      var _this3 = this;
-
+      this.props.toggleEvent(this.props.index);
       var postData = {};
       postData["id"] = this.props.id;
       postData["date"] = this.props.date;
       var json = JSON.stringify(postData);
-      _axios2.default.post('api/event_undone.php', json).then(function (data) {
-        _this3.unCheckItem();
-        _this3.forceUpdate();
-      });
+      _axios2.default.post('api/event_undone.php', json).then(function (data) {});
     }
   }, {
     key: 'render',
     value: function render() {
-      if ((this.props.isEventDone || this.state.checked) && !this.state.unchecked) {
+      if (this.props.isEventDone) {
         return _react2.default.createElement(
           _reactMaterialize.CollectionItem,
           { onClick: this.unMarkEventAsDone },
@@ -61085,22 +61065,19 @@ var TodoList = function (_Component2) {
   function TodoList() {
     _classCallCheck(this, TodoList);
 
-    var _this4 = _possibleConstructorReturn(this, (TodoList.__proto__ || Object.getPrototypeOf(TodoList)).call(this));
-
-    _this4.state = {};
-    return _this4;
+    return _possibleConstructorReturn(this, (TodoList.__proto__ || Object.getPrototypeOf(TodoList)).apply(this, arguments));
   }
 
   _createClass(TodoList, [{
     key: 'render',
     value: function render() {
-      var _this5 = this;
+      var _this4 = this;
 
       return _react2.default.createElement(
         _reactMaterialize.Collection,
         null,
         this.props.thingsToDo.map(function (data, index) {
-          return _react2.default.createElement(ItemInList, { id: data.id, date: data.date, title: data.title, location: data.location, isEventDone: data.isEventDone, reloadCalendar: _this5.props.reloadCalendar });
+          return _react2.default.createElement(ItemInList, { index: index, toggleEvent: _this4.props.toggleEvent, id: data.id, date: data.date, title: data.title, location: data.location, isEventDone: data.isEventDone, reloadCalendar: _this4.props.reloadCalendar, key: data.title + data.location });
         })
       );
     }
